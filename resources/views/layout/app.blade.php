@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DevPattern – @yield('title','Patrones de diseño')</title>
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/js/app.js','resources/js/patternPage.js'])
 </head>
-<body class="pt-20"> {{-- padding-top para header fijo --}}
+<body class="pt-20">
 
-    {{-- === Header === --}}
+    {{-- === Header (fijo) === --}}
     <header>
         <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
             {{-- Logo / Home --}}
@@ -58,11 +58,11 @@
             <div class="text-center">
                 <h3 class="font-medium">Encuéntrame en línea</h3>
                 <div class="mt-2 flex justify-center gap-4">
-                    <a href="https://linkedin.com/in/tu-perfil" target="_blank" aria-label="LinkedIn">
-                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.238-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.762-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.291c-.966 0-1.5-.723-1.5-1.615 0-.909.548-1.615 1.53-1.615.982 0 1.5.706 1.5 1.615 0 .892-.518 1.615-1.53 1.615zm13.5 11.291h-3v-5.569c0-1.328-.475-2.236-1.664-2.236-.908 0-1.448.608-1.687 1.197-.087.213-.109.512-.109.813v5.795h-3s.04-9.403 0-10.382h3v1.471c.397-.613 1.104-1.489 2.687-1.489 1.963 0 3.438 1.284 3.438 4.045v6.355z"/></svg>
+                    <a href="https://linkedin.com/in/tu-perfil" target="_blank" aria-label="LinkedIn" class="hover:underline">
+                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 ..."/></svg>
                     </a>
-                    <a href="https://github.com/tu-usuario" target="_blank" aria-label="GitHub">
-                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M12.026 2c-5.498 0-9.974 4.477-9.974 9.974 0 4.403 2.867 8.133 6.839 9.462.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.371-1.34-3.371-1.34-.454-1.155-1.109-1.463-1.109-1.463-.908-.621.069-.608.069-.608 1.004.071 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.646.349-1.088.636-1.34-2.221-.252-4.555-1.11-4.555-4.943 0-1.091.39-1.983 1.029-2.682-.103-.253-.446-1.272.098-2.651 0 0 .84-.269 2.75 1.025a9.587 9.587 0 012.501-.336 9.6 9.6 0 012.501.336c1.909-1.294 2.748-1.025 2.748-1.025.546 1.379.203 2.398.1 2.651.64.699 1.028 1.591 1.028 2.682 0 3.842-2.337 4.688-4.566 4.937.358.309.678.919.678 1.855 0 1.338-.012 2.42-.012 2.75 0 .267.18.579.688.481 3.971-1.329 6.834-5.059 6.834-9.461 0-5.497-4.476-9.974-9.974-9.974z"/></svg>
+                    <a href="https://github.com/tu-usuario" target="_blank" aria-label="GitHub"   class="hover:underline">
+                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M12.026 2c-5.498 ..."/></svg>
                     </a>
                 </div>
             </div>
@@ -75,6 +75,18 @@
             </div>
         </div>
     </footer>
+
+    {{-- Barra flotante accesibilidad --}}
+    <div class="fixed bottom-6 right-6 z-50 space-y-2">
+        <button onclick="a11y.zoomIn()"    class="a11y-btn" title="Aumentar fuente">A+</button>
+        <button onclick="a11y.zoomOut()"   class="a11y-btn" title="Disminuir fuente">A-</button>
+        <button onclick="a11y.toggleFont()"title="Cambiar fuente"   class="a11y-btn">F</button>
+        <button onclick="a11y.toggleDark()"title="Modo oscuro"      class="a11y-btn">🌙</button>
+        <button onclick="a11y.toggleContrast()" class="a11y-btn" title="Alto contraste">⧉</button>
+        <button onclick="a11y.toggleCursor()"   class="a11y-btn" title="Cursor grande">◌</button>
+        <button onclick="a11y.toggleImages()"   class="a11y-btn" title="Quitar imágenes">🖼️</button>
+        <button onclick="a11y.toggleLinks()"    class="a11y-btn" title="Resaltar texto">🔗</button>
+    </div>
 
 </body>
 </html>

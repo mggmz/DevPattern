@@ -21,3 +21,6 @@ header {
 footer a:hover {
   @apply underline;
 }
+.a11y-btn {
+  @apply w-10 h-10 flex items-center justify-center rounded-full bg-brand-header text-white text-sm shadow-lg hover:bg-red-600 transition;
+}
