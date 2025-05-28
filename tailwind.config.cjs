@@ -1,28 +1,16 @@
-// tailwind.config.cjs
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./public/index.html",
-    "./src/**/*.{js,jsx,ts,tsx}"
+    "./public/**/*.html",
+    "./public/js/**/*.js"
   ],
   theme: {
     extend: {
       colors: {
-        // Define your pastel red header color here
-        "pastel-red": "#ff7f7f"
-      },
-      animation: {
-        // Fade-in animation for images/text
-        fadeIn: "fadeIn 0.5s ease-out forwards"
-      },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" }
-        }
+        "pastel-red": "#ff6d6d",
+        "footer-gray": "#f1f1f1"
       }
     }
   },
-  plugins: [
-    require("@tailwindcss/forms")
-  ]
+  plugins: [require("@tailwindcss/typography")]
 };

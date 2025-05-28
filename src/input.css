@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*  Componentes reutilizables  */
+.nav-link{
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0
+         after:bg-white after:transition-all after:duration-300 hover:after:w-full;
+}
+.fade-in{
+  @apply opacity-0 translate-y-8 transition-all duration-500;
+}
+.fade-in.show{
+  @apply opacity-100 translate-y-0;
+}
+.dark body{ @apply bg-gray-900 text-gray-100; }
+.contrast body{ @apply bg-black text-yellow-400; }
+.alt-font{ font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; }
