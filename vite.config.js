@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: "/DevPattern/",   // carpeta que creará GitHub Pages
   server: {
-    https: true           // para desarrollar localmente con HTTPS (autofirmado)
+    https: false// para desarrollar localmente con HTTPS (autofirmado)
   }
 });
