@@ -1,0 +1,8 @@
+# DevPattern Security Policy
+Contact: mailto:seguridad@tu-dominio.com
+Preferred-Languages: es, en
+Canonical: https://<tu-usuario>.github.io/DevPattern/.well-known/security.txt
+Expires: 2026-05-28T00:00:00Z
+Policy: https://<tu-usuario>.github.io/DevPattern/politica-divulgacion.html
+Acknowledgments: https://<tu-usuario>.github.io/DevPattern/hall-of-fame.html
+Encryption: https://<tu-usuario>.github.io/DevPattern/pgp-key.txt
