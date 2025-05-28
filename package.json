@@ -1,0 +1,31 @@
+{
+  "name": "devpattern",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inspirado en refactoring.guru – Patrones de diseño + ODS 4",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vite build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.12.0",
+    "@heroicons/react": "^2.1.3",
+    "clsx": "^2.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-pdf": "^7.7.4",
+    "react-router-dom": "^6.23.0",
+    "react-syntax-highlighter": "^15.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "@types/react-dom": "^18.2.9",
+    "autoprefixer": "^10.4.19",
+    "gh-pages": "^6.1.2",
+    "postcss": "^8.4.34",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.0.8"
+  }
+}
