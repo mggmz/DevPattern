@@ -1,107 +1,85 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import clsx from "clsx";
-
-const menuLink =
-  "relative px-3 py-2 transition-colors duration-200 hover:underline";
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../assets/logo.svg';
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  const [openPatterns, setOpenPatterns] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 bg-brand-red text-white shadow-lg">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 text-lg font-semibold">
-          <img
-            src="/logo.png"
-            alt="DevPattern logo"
-            className="h-8 w-8 object-contain"
-          />
-          DevPattern
+    <header className="fixed top-0 w-full bg-pastel-red text-white shadow-md z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-4">
+        <Link to="/" className="flex items-center space-x-2">
+          <img src={logo} alt="DevPattern Logo" className="h-8 w-8" />
+          <span className="font-bold text-xl">DevPattern</span>
         </Link>
-
-        {/* Main links */}
-        <ul className="flex items-center gap-4 text-sm font-medium">
-          <li>
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                clsx(menuLink, isActive && "underline-offset-8")
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/cv"
-              className={({ isActive }) =>
-                clsx(menuLink, isActive && "underline-offset-8")
-              }
-            >
-              CV
-            </NavLink>
-          </li>
-
-          {/* Dropdown */}
-          <li
-            className="relative"
-            onMouseEnter={() => setOpen(true)}
-            onMouseLeave={() => setOpen(false)}
+        <nav className="flex items-center space-x-6">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `hover:underline transition underline-offset-4 ${
+                isActive ? 'underline' : ''
+              }`
+            }
           >
+            Home
+          </NavLink>
+          <div className="relative">
             <button
-              className={clsx(menuLink, "flex items-center gap-1")}
-              aria-haspopup="true"
-              aria-expanded={open}
+              onMouseEnter={() => setOpenPatterns(true)}
+              onMouseLeave={() => setOpenPatterns(false)}
+              className="hover:underline transition underline-offset-4"
             >
               Patrones
-              <ChevronDownIcon className="h-4 w-4" />
             </button>
-
-            <div
-              className={clsx(
-                "absolute right-0 mt-2 w-52 origin-top-right rounded-md bg-white py-2 shadow-lg transition-all duration-200",
-                open
-                  ? "scale-100 opacity-100"
-                  : "pointer-events-none scale-95 opacity-0"
-              )}
-            >
-              <NavLink
-                to="/patrones/creacionales"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            {openPatterns && (
+              <div
+                onMouseEnter={() => setOpenPatterns(true)}
+                onMouseLeave={() => setOpenPatterns(false)}
+                className="absolute top-full mt-1 bg-white text-gray-800 rounded shadow-lg py-2"
               >
-                Patrones creacionales
-              </NavLink>
-              <NavLink
-                to="/patrones/estructurales"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                Patrones estructurales
-              </NavLink>
-              <NavLink
-                to="/patrones/comportamiento"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                Patrones de comportamiento
-              </NavLink>
-            </div>
-          </li>
-
-          <li>
-            <NavLink
-              to="/contacto"
-              className={({ isActive }) =>
-                clsx(menuLink, isActive && "underline-offset-8")
-              }
-            >
-              Contacto
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+                <Link
+                  to="/patterns/creational"
+                  className="block px-4 py-1 hover:bg-gray-100"
+                >
+                  Creacionales
+                </Link>
+                <Link
+                  to="/patterns/structural"
+                  className="block px-4 py-1 hover:bg-gray-100"
+                >
+                  Estructurales
+                </Link>
+                <Link
+                  to="/patterns/behavioral"
+                  className="block px-4 py-1 hover:bg-gray-100"
+                >
+                  Comportamiento
+                </Link>
+              </div>
+            )}
+          </div>
+          <NavLink
+            to="/cv"
+            className={({ isActive }) =>
+              `hover:underline transition underline-offset-4 ${
+                isActive ? 'underline' : ''
+              }`
+            }
+          >
+            CV
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `hover:underline transition underline-offset-4 ${
+                isActive ? 'underline' : ''
+              }`
+            }
+          >
+            Contacto
+          </NavLink>
+        </nav>
+      </div>
     </header>
   );
 }

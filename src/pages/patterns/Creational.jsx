@@ -1,5 +1,5 @@
 import { patterns } from "./data";
-import PatternCodeExample from "../../components/PatternCodeExample";
+import PatternCodeExample from "../../components/PatternCard";
 
 export default function Creational() {
   return (
