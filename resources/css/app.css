@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Componentes globales === */
+
+body {
+  @apply bg-white text-gray-800 leading-relaxed antialiased transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* Encabezado fijo */
+header {
+  @apply fixed top-0 inset-x-0 z-50 shadow-sm bg-brand-header text-white;
+}
+
+/* Footer */
+footer a:hover {
+  @apply underline;
+}
