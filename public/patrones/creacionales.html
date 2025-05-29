@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Patrones Creacionales – DevPattern</title>
+  <link rel="stylesheet" href="../css/tailwind.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+</head>
+<body class="pt-20">
+ <!-- Header -->
+<header class="fixed inset-x-0 top-0 z-50 bg-pastel-red text-white shadow-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="img/logo.png" alt="DevPattern logo" class="h-8 w-8"/>
+      <span class="text-xl font-bold">DevPattern</span>
+    </a>
+
+    <!-- Menú principal -->
+    <nav class="hidden gap-8 md:flex">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="relative group">
+        <button class="nav-link">Patrones ▾</button>
+        <ul
+          class="invisible absolute left-0 mt-2 w-56 divide-y divide-gray-200 rounded-md bg-white text-gray-700 shadow-lg group-hover:visible"
+        >
+          <li><a class="block px-4 py-2 hover:bg-gray-100" href="patrones/creacionales.html">Patrones creacionales</a></li>
+          <li><a class="block px-4 py-2 hover:bg-gray-100" href="patrones/estructurales.html">Patrones estructurales</a></li>
+          <li><a class="block px-4 py-2 hover:bg-gray-100" href="patrones/comportamiento.html">Patrones de comportamiento</a></li>
+        </ul>
+      </div>
+      <a href="cv.html" class="nav-link">CV</a>
+      <a href="contact.html" class="nav-link">Contacto</a>
+    </nav>
+
+    <!-- Burger -->
+    <button id="burger" class="md:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round"
+           stroke-linejoin="round" stroke-width="2"
+           d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+
+  <!-- Menú móvil -->
+  <nav id="mobileMenu"
+       class="hidden flex flex-col gap-4 bg-pastel-red px-6 pb-6 text-lg md:hidden">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="patrones/creacionales.html" class="nav-link">Patrones creacionales</a>
+    <a href="patrones/estructurales.html" class="nav-link">Patrones estructurales</a>
+    <a href="patrones/comportamiento.html" class="nav-link">Patrones de comportamiento</a>
+    <a href="cv.html" class="nav-link">CV</a>
+    <a href="contact.html" class="nav-link">Contacto</a>
+  </nav>
+</header>
+
+
+  <main class="mx-auto max-w-5xl px-6">
+    <h1 class="mb-8 text-3xl font-bold">Patrones Creacionales</h1>
+    <div id="patterns" class="space-y-20"></div>
+  </main>
+
+  <!-- Footer -->
+<footer class="mt-24 bg-footer-gray py-10 text-sm text-gray-600">
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
+    <!-- Izquierda -->
+    <div class="flex items-center gap-2">
+      <i class="fa-brands fa-creative-commons"></i>
+      <span>2025 DevPattern</span>
+    </div>
+
+    <!-- Centro -->
+    <div class="text-center">
+      <h3 class="text-base font-semibold">Encuéntrame en línea</h3>
+      <div class="mt-2 flex gap-4 justify-center">
+        <a href="https://www.linkedin.com/in/marco-antonio-garcía-gámez-b203b9130/ target="_blank" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin fa-xl"></i>
+        </a>
+        <a href="https://github.com/mggmz" target="_blank" aria-label="GitHub">
+          <i class="fa-brands fa-github fa-xl"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Derecha -->
+    <nav class="flex flex-col items-end gap-1">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="patrones/creacionales.html" class="hover:underline">Patrones</a>
+      <a href="contact.html" class="hover:underline">Contacto</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- FontAwesome & scripts comunes -->
+<script src="https://kit.fontawesome.com/7ed5b332d2.js" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="js/accessibility.js"></script>
+
+
+  <script src="../js/data.js"></script>
+  <script src="../js/patterns.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>renderPatterns("creacional");</script>
+</body>
+</html>
