@@ -1,74 +1,70 @@
-/* Config ---------------------------------------------------------------- */
-const MAX_SCALE = 3;
-const MIN_SCALE = 1;
-let scaleStep = 0;          // 0 = normal, +1, +2, +3, -1, -2, -3
-let darkMode = false;
-let highContrast = false;
-let imagesHidden = false;
-let linksHidden = false;
+/* Barra de accesibilidad DevPattern
+   Se inyecta al cargar el documento
+----------------------------------------------------- */
+(() => {
+  /*  CONFIG  */
+  const MAX = 3;
+  const MIN = 1;
+  let step = 0;
+  let dark = false, contrast = false, imgOff = false, linksOff = false;
+  const root = document.documentElement;
 
-/* Helpers --------------------------------------------------------------- */
-const root = document.documentElement;
+  /*  HELPERS  */
+  const scale = d => {
+    step = Math.max(MIN - 1, Math.min(MAX - 1, step + d));
+    root.style.fontSize = `${100 + step * 25}%`;
+  };
+  const toggle = (flag, cls) => {
+    flag = !flag;
+    root.classList.toggle(cls, flag);
+    return flag;
+  };
 
-/* Controles -------------------------------------------------------------- */
-function toggleDark() {
-  darkMode = !darkMode;
-  root.classList.toggle("dark", darkMode);
-}
-function toggleContrast() {
-  highContrast = !highContrast;
-  root.classList.toggle("contrast", highContrast);
-}
-function updateScale(delta) {
-  scaleStep = Math.max(MIN_SCALE - 1, Math.min(MAX_SCALE - 1, scaleStep + delta));
-  root.style.fontSize = `${100 + scaleStep * 25}%`;
-}
-function toggleFontFamily() {
-  root.classList.toggle("alt-font");
-}
-function toggleImages() {
-  imagesHidden = !imagesHidden;
-  document.querySelectorAll("img").forEach(img => {
-    img.style.display = imagesHidden ? "none" : "";
-  });
-}
-function toggleLinks() {
-  linksHidden = !linksHidden;
-  document.querySelectorAll("a").forEach(a => {
-    a.style.color = linksHidden ? "inherit" : "";
-    a.style.textDecoration = linksHidden ? "none" : "underline";
-    a.style.fontWeight = linksHidden ? "700" : "";
-  });
-}
+  /*  CREA BARRA  */
+  const bar = document.createElement('div');
+  bar.className =
+    'fixed right-4 bottom-4 z-50 flex flex-col gap-2 ' +
+    'rounded-xl bg-white/80 p-3 shadow-lg';
 
-/* Barra flotante -------------------------------------------------------- */
-const bar = document.createElement("div");
-bar.className =
-  "fixed right-4 bottom-4 z-50 flex flex-col gap-2 rounded-xl bg-white/80 p-3 shadow-lg";
-bar.innerHTML = `
-  <button class="btn" aria-label="Aumentar fuente">A+</button>
-  <button class="btn" aria-label="Disminuir fuente">A-</button>
-  <button class="btn" aria-label="Cambiar familia">Aa</button>
-  <button class="btn" aria-label="Modo oscuro">🌙</button>
-  <button class="btn" aria-label="Alto contraste">⚡</button>
-  <button class="btn" aria-label="Ocultar imágenes">🖼️🚫</button>
-  <button class="btn" aria-label="Resaltar links">🔗</button>
-`;
-[...bar.children].forEach((btn, i) => {
-  btn.className = "rounded-md border bg-footer-gray px-2 py-1 text-xs font-semibold";
-  btn.addEventListener("click", () => {
-    switch (i) {
-      case 0: updateScale(+1); break;
-      case 1: updateScale(-1); break;
-      case 2: toggleFontFamily(); break;
-      case 3: toggleDark(); break;
-      case 4: toggleContrast(); break;
-      case 5: toggleImages(); break;
-      case 6: toggleLinks(); break;
+  const buttons = [
+    { txt: 'A+', act: () => scale(+1) },
+    { txt: 'A-', act: () => scale(-1) },
+    { txt: 'Aa', act: () => root.classList.toggle('alt-font') },
+    { txt: '🌙', act: () => (dark = toggle(dark, 'dark')) },
+    { txt: '⚡', act: () => (contrast = toggle(contrast, 'contrast')) },
+    { txt: '🖼️🚫', act: () => {
+        imgOff = !imgOff;
+        document.querySelectorAll('img').forEach(img => {
+          img.style.display = imgOff ? 'none' : '';
+        });
+      }
+    },
+    { txt: '🔗', act: () => {
+        linksOff = !linksOff;
+        document.querySelectorAll('a').forEach(a => {
+          a.style.color = linksOff ? 'inherit' : '';
+          a.style.textDecoration = linksOff ? 'none' : 'underline';
+          a.style.fontWeight = linksOff ? '700' : '';
+        });
+      }
     }
-  });
-});
-document.body.appendChild(bar);
+  ];
 
-/* Cursor personalizado -------------------------------------------------- */
-root.style.cursor = "url('img/cursor.svg'), auto";
+  buttons.forEach(b => {
+    const btn = document.createElement('button');
+    btn.textContent = b.txt;
+    btn.className =
+      'rounded-md border bg-footer-gray px-2 py-1 ' +
+      'text-xs font-semibold';
+    btn.addEventListener('click', b.act);
+    bar.appendChild(btn);
+  });
+
+  /*  Aplica cursor personalizado  */
+  root.style.cursor = "url('/img/cursor.png'), auto";
+
+  /*  Añade al body  */
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.appendChild(bar);
+  });
+})();
