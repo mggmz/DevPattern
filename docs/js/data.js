@@ -14,7 +14,7 @@ const PATTERNS = [
     name: "Singleton",
     summary:
       "Garantiza que una clase posea solo una instancia y proporcione un punto de acceso global a ella.",
-    image: "/assets/singleton.png",
+    image: "../assets/singleton.png",
     examples: {
       js: `class Singleton {
   constructor() {
