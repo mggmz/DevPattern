@@ -61,3 +61,36 @@ html.contrast .fixed.right-4.bottom-4 button {
   border-color: #fde047 !important;
   background-color: #000000 !important;
 }
+
+
+html.dark .bg-footer-gray {
+  background-color: #374151 !important; /* gray-700 */
+}
+html.dark footer {
+  color: #f3f4f6 !important;
+}
+html.dark footer a {
+  color: #93c5fd !important;            /* azul claro */
+}
+html.dark footer a:hover {
+  color: #bfdbfe !important;            /* azul más suave */
+}
+html.dark footer i {
+  color: #f3f4f6 !important;
+}
+
+/* ALTO CONTRASTE: fondo negro y texto amarillo */
+html.contrast .bg-footer-gray {
+  background-color: #000000 !important;
+}
+html.contrast footer {
+  color: #fde047 !important;            /* yellow-400 */
+}
+html.contrast footer a {
+  color: #fde047 !important;
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+html.contrast footer i {
+  color: #fde047 !important;
+}

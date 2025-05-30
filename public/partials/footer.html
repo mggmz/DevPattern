@@ -1,32 +1,45 @@
+<!-- /public/partials/footer.html -->
 <footer class="mt-24 bg-footer-gray py-10 text-sm text-gray-600">
   <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
-    <!-- Izquierda -->
+
+    <!-- IZQUIERDA: Creative Commons + Año -->
     <div class="flex items-center gap-2">
-      <i class="fa-brands fa-creative-commons"></i>
-      <span>2025 DevPattern</span>
+      <i class="fa-brands fa-creative-commons fa-lg"></i>
+      <span class="font-semibold">2025 Ⓒ DevPattern</span>
     </div>
 
-    <!-- Centro -->
     <div class="text-center">
       <h3 class="text-base font-semibold">Encuéntrame en línea</h3>
-      <div class="mt-2 flex gap-4 justify-center">
-        <a href="https://linkedin.com/in/tu-perfil" target="_blank" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin fa-xl"></i>
+      <div class="mt-4 flex gap-8 justify-center">
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/marco-antonio-garcía-gámez-b203b9130/"
+           target="_blank"
+           class="flex flex-col items-center gap-1 hover:text-pastel-red">
+          <i class="fa-brands fa-linkedin fa-2x"></i>
+          <span class="text-sm font-medium">LinkedIn</span>
         </a>
-        <a href="https://github.com/tu-usuario"     target="_blank" aria-label="GitHub">
-          <i class="fa-brands fa-github fa-xl"></i>
+
+        <!-- GitHub -->
+        <a href="https://github.com/mggmz"
+           target="_blank"
+           class="flex flex-col items-center gap-1 hover:text-pastel-red">
+          <i class="fa-brands fa-github fa-2x"></i>
+          <span class="text-sm font-medium">GitHub</span>
         </a>
+
       </div>
     </div>
 
-    <!-- Derecha -->
-    <nav class="flex flex-col items-end gap-1">
+    <!-- DERECHA: Navegación -->
+    <nav class="flex flex-col items-center gap-1">
       <a href="/index.html"                       class="hover:underline">Home</a>
       <a href="/patrones/creacionales.html"       class="hover:underline">Patrones</a>
       <a href="/contact.html"                     class="hover:underline">Contacto</a>
     </nav>
+
   </div>
 
-  <!-- librerías -->
+  <!-- librerías FontAwesome -->
   <script src="https://kit.fontawesome.com/7ed5b332d2.js" crossorigin="anonymous"></script>
 </footer>
