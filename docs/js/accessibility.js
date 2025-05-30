@@ -35,9 +35,9 @@
   const toggleCursor = () => {
     cursorCross = !cursorCross;
     if (cursorCross) {
-      root.style.cursor = 'crosshair';  
+      root.style.cursor = 'crosshair';
     } else {
-      root.style.cursor = "url('../img/cursor.png'), auto";
+      root.style.cursor = "url('/img/cursor.png'), auto";
     }
   };
 
@@ -159,7 +159,7 @@
 
   /* ─── CURSOR INICIAL PERSONALIZADO ─────────────────────── */
   if (!cursorCross) {
-    root.style.cursor = "url('../img/cursor.png'), auto";
+    root.style.cursor = "url('/img/cursor.png'), auto";
   }
 
   /* ─── INYECCIÓN Y CARGA DEL ESTADO ────────────────────── */

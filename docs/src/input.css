@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*  Componentes reutilizables  */
+.nav-link{
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0
+         after:bg-white after:transition-all after:duration-300 hover:after:w-full;
+}
+.fade-in{
+  @apply opacity-0 translate-y-8 transition-all duration-500;
+}
+.fade-in.show{
+  @apply opacity-100 translate-y-0;
+}
+
+/* ─── MODO OSCURO ───────────────────────────────────── */
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+/* Sobrescribir colores oscuros de utilidades para que sean claros */
+.dark .text-gray-700,
+.dark .text-gray-600,
+.dark .text-gray-100 {
+  @apply text-gray-100;
+}
+/* Fondos claros de componentes */
+.dark .bg-white,
+.dark .bg-white\/80 {
+  @apply bg-gray-800;
+}
+.dark .bg-footer-gray {
+  @apply bg-gray-700;
+}
+/* Forzar texto claro en la barra de accesibilidad */
+.dark .fixed.right-4.bottom-4 span,
+.dark .fixed.right-4.bottom-4 button {
+  @apply text-gray-100;
+}
+
+/* ─── ALTO CONTRASTE ─────────────────────────────────── */
+.contrast body {
+  @apply bg-black text-yellow-400;
+}
+.contrast .text-gray-700,
+.contrast .text-gray-600,
+.contrast .text-gray-100 {
+  @apply text-yellow-400;
+}
+.contrast a {
+  @apply underline font-bold;
+}
+.contrast .bg-white,
+.contrast .bg-white\/80 {
+  @apply bg-black;
+}
+.contrast .bg-footer-gray {
+  @apply bg-black;
+}
+/* Forzar texto de alto contraste en la barra */
+.contrast .fixed.right-4.bottom-4 span,
+.contrast .fixed.right-4.bottom-4 button {
+  @apply text-yellow-400;
+}
+
+/* ─── CLASE DE FUENTE ALTERNATIVA ───────────────────── */
+.alt-font {
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+}
