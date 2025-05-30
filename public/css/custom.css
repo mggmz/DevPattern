@@ -1,0 +1,63 @@
+/* ——————————— MODO OSCURO ——————————— */
+html.dark body {
+  background-color: #1f2937 !important; /* gray-800 */
+  color: #f3f4f6       !important; /* gray-100 */
+}
+
+/* Forzar color claro en párrafos, encabezados y listas */
+html.dark body *,
+html.dark main *,
+html.dark p,
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6,
+html.dark li {
+  color: #f3f4f6 !important;
+}
+
+/* Forzar color y fondo de links */
+html.dark a {
+  color: #93c5fd    !important; /* blue-300 */
+}
+html.dark a:hover {
+  color: #bfdbfe    !important; /* blue-200 */
+}
+
+/* Barra de accesibilidad */
+html.dark .fixed.right-4.bottom-4 {
+  background-color: rgba(31, 41, 55, .95) !important; /* gray-800 semi */
+}
+html.dark .fixed.right-4.bottom-4 span,
+html.dark .fixed.right-4.bottom-4 button {
+  color: #f3f4f6 !important;
+  border-color: #374151 !important; /* gray-700 */
+  background-color: #374151   !important; /* gray-700 */
+}
+
+/* ———————— ALTO CONTRASTE ———————— */
+html.contrast body {
+  background-color: #000000 !important;
+  color: #fde047       !important; /* yellow-400 */
+}
+
+html.contrast body *,
+html.contrast main *,
+html.contrast p,
+html.contrast h1, html.contrast h2, html.contrast h3, html.contrast h4, html.contrast h5, html.contrast h6,
+html.contrast li {
+  color: #fde047 !important;
+}
+
+html.contrast a {
+  color: #fde047 !important;
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+html.contrast .fixed.right-4.bottom-4 {
+  background-color: #000000 !important;
+}
+html.contrast .fixed.right-4.bottom-4 span,
+html.contrast .fixed.right-4.bottom-4 button {
+  color: #fde047 !important;
+  border-color: #fde047 !important;
+  background-color: #000000 !important;
+}
