@@ -70,18 +70,26 @@ function cardFromPattern(p) {
   selector.querySelectorAll("button").forEach(btn => {
     btn.addEventListener("click", () => {
       const lang = btn.dataset.lang;
-      // Toggle estilos botón
-      selector.querySelectorAll("button").forEach(b =>
-        b.classList.toggle("bg-pastel-red text-white", b === btn)
-      );
-      // Muestra/oculta bloques
-      codeBox.querySelectorAll("pre").forEach(pre =>
-        pre.style.display = pre.dataset.lang === lang ? "block" : "none"
-      );
+
+      // 1) Actualizar estilos de botones: sólo el seleccionado lleva bg-pastel-red y text-white
+      selector.querySelectorAll("button").forEach(b => {
+        if (b === btn) {
+          b.classList.add("bg-pastel-red", "text-white");
+        } else {
+          b.classList.remove("bg-pastel-red", "text-white");
+        }
+      });
+
+      // 2) Mostrar/ocultar bloques de código
+      codeBox.querySelectorAll("pre").forEach(pre => {
+        pre.style.display = pre.dataset.lang === lang ? "block" : "none";
+      });
     });
   });
+
   // Activa JS por defecto
   selector.querySelector('[data-lang="js"]').click();
+
   return art;
 }
 

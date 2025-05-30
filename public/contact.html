@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DevPattern – Contacto</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.png">
+  <link rel="shortcut icon" type="image/png" href="/img/logo.png">
+  
   <link rel="stylesheet" href="css/tailwind.css">
   <link rel="stylesheet" href="/css/custom.css">
+
 
   <!-- EmailJS ------------------------------------------------------------ -->
   <script defer
@@ -73,7 +79,7 @@
         return;
       }
 
-      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form)
+      emailjs.sendForm("service_yb1o6g3", "template_gcm4vvp", form)
         .then(() => {
           status.textContent = "Mensaje enviado correctamente ✅";
           form.reset();
