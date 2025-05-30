@@ -15,8 +15,8 @@
 
   // placeholder divs ya están en cada HTML
   await Promise.all([
-    insert("#site-header", "partials/header.html"),
-    insert("#site-footer", "partials/footer.html")
+    insert("#site-header", "/partials/header.html"),
+    insert("#site-footer", "/partials/footer.html")
   ]);
 
   //  después de inyectar, carga scripts dependientes
@@ -26,6 +26,6 @@
     document.body.appendChild(s);
   });
 
-  await load("js/main.js");
-  await load("js/accessibility.js");
+  await load("/js/main.js");
+  await load("/js/accessibility.js");
 })();
